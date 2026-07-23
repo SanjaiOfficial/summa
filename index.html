@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="SIMATS Viana Study Portal - Powered by Viana Soft. Digital E-Bus Pass Portal for Saveetha Engineering College & SIMATS students.">
+    <meta name="keywords"
+        content="Admissions, SIMATS Admissions, Saveetha Admissions, SSE, SIMATS, Viana study, Bus Pass, E-Bus Pass">
+    <title>SIMATS Viana Study Portal</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'><path d='M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3'/><circle cx='7' cy='18' r='2'/><circle cx='16' cy='18' r='2'/></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- QRCode.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style id="_goober">
+        @keyframes go2264125279 {
+            from {
+                transform: scale(0) rotate(45deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(45deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes go3020080000 {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes go463499852 {
+            from {
+                transform: scale(0) rotate(90deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(90deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes go1268368563 {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes go1310225428 {
+            from {
+                transform: scale(0) rotate(45deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(45deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes go651618207 {
+            0% {
+                height: 0;
+                width: 0;
+                opacity: 0;
+            }
+
+            40% {
+                height: 0;
+                width: 6px;
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 1;
+                height: 10px;
+            }
+        }
+
+        @keyframes go901347462 {
+            from {
+                transform: scale(0.6);
+                opacity: 0.4;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .go4109123758 {
+            z-index: 9999;
+        }
+
+        .go4109123758>* {
+            pointer-events: auto;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 min-h-screen text-slate-900 selection:bg-blue-100 selection:text-blue-700">
+
+    <div id="root">
+        <!-- Toaster notification area -->
+        <div data-rht-toaster="" style="position: fixed; z-index: 9999; inset: 16px; pointer-events: none;"></div>
+
+        <!-- Main Wrapper -->
+        <div
+            class="min-h-[100dvh] w-full bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex flex-col items-center px-4 py-6">
+
+            <!-- Top Portal Navigation Header -->
+            <div class="w-full max-w-md flex items-center justify-between mb-4">
+                <div class="inline-flex items-center gap-2 text-slate-700 font-bold text-base tracking-tight">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-bus w-5 h-5 text-blue-600" aria-hidden="true">
+                        <path d="M8 6v6"></path>
+                        <path d="M15 6v6"></path>
+                        <path d="M2 12h19.6"></path>
+                        <path
+                            d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3">
+                        </path>
+                        <circle cx="7" cy="18" r="2"></circle>
+                        <path d="M9 18h5"></path>
+                        <circle cx="16" cy="18" r="2"></circle>
+                    </svg>
+                    E-Bus Pass
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <button type="button" id="btn-logout"
+                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 border border-slate-200 bg-white hover:bg-slate-50 transition-colors shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-log-out w-3.5 h-3.5" aria-hidden="true">
+                            <path d="m16 17 5-5-5-5"></path>
+                            <path d="M21 12H9"></path>
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        </svg>
+                        Logout
+                    </button>
+                </div>
+            </div>
+
+            <!-- E-Bus Pass Card Container -->
+            <div id="printable-pass-card"
+                class="w-full max-w-md overflow-hidden rounded-2xl border border-slate-200/80 shadow-xl bg-white transition-all duration-300 hover:shadow-2xl">
+
+                <!-- Pass Header Banner -->
+                <div
+                    class="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 text-white px-5 py-4 flex items-center justify-between shadow-sm">
+                    <span class="inline-flex items-center gap-1.5 text-sm font-bold tracking-wide">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-bus w-4 h-4" aria-hidden="true">
+                            <path d="M8 6v6"></path>
+                            <path d="M15 6v6"></path>
+                            <path d="M2 12h19.6"></path>
+                            <path
+                                d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3">
+                            </path>
+                            <circle cx="7" cy="18" r="2"></circle>
+                            <path d="M9 18h5"></path>
+                            <circle cx="16" cy="18" r="2"></circle>
+                        </svg>
+                        BUS PASS
+                    </span>
+                    <span
+                        class="text-[10px] font-semibold uppercase tracking-wider opacity-90 truncate max-w-[55%] text-right bg-white/10 px-2 py-0.5 rounded backdrop-blur-sm border border-white/20">
+                        SEC
+                    </span>
+                </div>
+
+                <!-- Student Details Section -->
+                <div class="px-5 pt-5 pb-3 flex flex-col items-center text-center text-gray-900">
+                    <div id="profile-avatar" title="Click to view/edit details"
+                        class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100 text-blue-700 flex items-center justify-center text-2xl font-extrabold border-4 border-blue-50 shadow-md cursor-pointer transition-transform hover:scale-105">
+                        S
+                    </div>
+
+                    <div id="display-student-name"
+                        class="mt-2.5 text-lg font-extrabold leading-tight tracking-tight text-slate-800">
+                        Sanjai L
+                    </div>
+                    <div id="display-student-reg" class="text-xs font-mono font-medium text-slate-500 mt-0.5">
+                        Register No: 212223230184
+                    </div>
+                    <div id="display-student-dept" class="text-[11px] font-medium text-slate-400 mt-0.5">
+                        Artificial Intelligence &amp; Data Science
+                    </div>
+
+                    <div id="display-student-route"
+                        class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-slate-800 bg-slate-50 px-3 py-1 rounded-full border border-slate-100 shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-bus w-4 h-4 text-blue-600" aria-hidden="true">
+                            <path d="M8 6v6"></path>
+                            <path d="M15 6v6"></path>
+                            <path d="M2 12h19.6"></path>
+                            <path
+                                d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3">
+                            </path>
+                            <circle cx="7" cy="18" r="2"></circle>
+                            <path d="M9 18h5"></path>
+                            <circle cx="16" cy="18" r="2"></circle>
+                        </svg>
+                        Redhills 7<span class="text-gray-400">· 7</span>
+                    </div>
+
+                    <div class="mt-1.5 flex items-center justify-center gap-1.5 text-[11px] text-gray-600 font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-map-pin w-3.5 h-3.5 text-emerald-500" aria-hidden="true">
+                            <path
+                                d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                            </path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span id="display-student-pickup" class="text-center">Redhills Alamaram → Thandalam Campus</span>
+                    </div>
+
+                    <div class="mt-3 flex flex-wrap items-center justify-center gap-2">
+                        <span
+                            class="rounded-full bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-0.5 text-[11px] font-semibold">Annual
+                            Pass</span>
+                        <span
+                            class="rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 text-[11px] font-semibold flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Paid
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Ticket Cutout Divider Lines -->
+                <div class="relative my-1">
+                    <div class="border-t-2 border-dashed border-gray-200"></div>
+                    <span
+                        class="absolute -left-2.5 -top-2 w-5 h-5 rounded-full bg-blue-50 border border-slate-200"></span>
+                    <span
+                        class="absolute -right-2.5 -top-2 w-5 h-5 rounded-full bg-indigo-50 border border-slate-200"></span>
+                </div>
+
+                <!-- Security QR Code & Manual OTP Section -->
+                <div class="px-4 py-4 flex flex-col items-center bg-white text-gray-900">
+                    <div class="p-2 bg-white rounded-xl border border-slate-200 shadow-sm qr-container">
+                        <img src="qr.jpeg" id="pass-qr-image" alt="E-Bus Pass QR Code"
+                            class="w-[168px] h-[168px] object-contain rounded-lg shadow-inner">
+                    </div>
+
+                    <div class="mt-2.5 text-center">
+                        <div class="text-[10px] uppercase font-bold tracking-widest text-gray-400">Manual code</div>
+                        <div id="manual-otp-code"
+                            class="font-mono font-bold text-xl tracking-[0.3em] text-slate-900 my-0.5 transition-all">
+                            246 243</div>
+                    </div>
+
+                    <button type="button" id="refresh-otp-btn" title="Click to refresh verification code"
+                        class="mt-0.5 inline-flex items-center gap-1.5 text-[10px] font-medium text-slate-500 hover:text-blue-600 transition-colors bg-slate-50 hover:bg-blue-50 px-2.5 py-1 rounded-full border border-slate-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-refresh-cw w-3 h-3 text-blue-600 animate-spin-hover"
+                            aria-hidden="true">
+                            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                            <path d="M21 3v5h-5"></path>
+                            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                            <path d="M8 16H3v5"></path>
+                        </svg>
+                        <span id="timer-text">Refreshes in 60s</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Interactive Quick Action Cards -->
+            <div class="w-full max-w-md grid grid-cols-2 gap-3 mt-4 no-print">
+
+                <!-- Scan to Verify Bus Button -->
+                <button type="button" id="btn-scan-verify"
+                    class="group rounded-2xl border border-slate-200/80 bg-white shadow-sm hover:shadow-md p-4 flex flex-col items-center text-center gap-1.5 transition-all hover:-translate-y-0.5">
+                    <span
+                        class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-md shadow-emerald-500/20 transition-transform group-hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-scan-line w-5 h-5" aria-hidden="true">
+                            <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+                            <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+                            <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+                            <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+                            <path d="M7 12h10"></path>
+                        </svg>
+                    </span>
+                    <span class="text-[13px] font-bold text-slate-800">Scan to Verify Bus</span>
+                    <span class="text-[11px] text-slate-400 font-medium">Check you can board</span>
+                </button>
+
+                <!-- Track My Bus Button -->
+                <button type="button" id="btn-track-bus"
+                    class="group rounded-2xl border border-slate-200/80 bg-white shadow-sm hover:shadow-md p-4 flex flex-col items-center text-center gap-1.5 transition-all hover:-translate-y-0.5">
+                    <span
+                        class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 text-white shadow-md shadow-purple-500/20 transition-transform group-hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-navigation w-5 h-5" aria-hidden="true">
+                            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                        </svg>
+                    </span>
+                    <span class="text-[13px] font-bold text-slate-800">Track My Bus</span>
+                    <span class="text-[11px] text-slate-400 font-medium">Live location</span>
+                </button>
+            </div>
+
+            <!-- Card Bottom Footer Info -->
+            <div
+                class="mt-4 flex items-center justify-between w-full max-w-md px-2 text-[11px] text-slate-400 font-medium no-print">
+                <span id="display-student-helpline" class="inline-flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-phone w-3 h-3 text-slate-400" aria-hidden="true">
+                        <path
+                            d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384">
+                        </path>
+                    </svg>
+                    Helpline: 8428882006
+                </span>
+
+                <span id="display-student-blood" class="inline-flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-droplet w-3 h-3 text-rose-500" aria-hidden="true">
+                        <path
+                            d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z">
+                        </path>
+                    </svg>
+                    Blood: B+
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MODAL 1: TRACK MY BUS LIVE GPS ROUTE MAP -->
+    <div id="modal-track-bus"
+        class="modal-wrapper fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
+        <div class="bg-white/90 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.15)] rounded-2xl w-full max-w-2xl overflow-hidden flex flex-col"
+            style="height: min(80vh, 620px);">
+            <div
+                class="bg-white/40 backdrop-blur-sm border-b border-white/30 px-4 py-3 rounded-t-xl flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2 min-w-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-navigation w-4 h-4 text-blue-500 shrink-0" aria-hidden="true">
+                        <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                    </svg>
+                    <div class="min-w-0">
+                        <h3 class="text-sm font-bold text-gray-900 truncate">Live Location · TN87F5343</h3>
+                        <p class="text-[11px] text-gray-500">Stopped</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <div
+                        class="flex items-center gap-0.5 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 p-0.5 shadow-inner">
+                        <button type="button"
+                            class="flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold transition-all bg-white text-blue-600 shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-map w-3 h-3" aria-hidden="true">
+                                <path
+                                    d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z">
+                                </path>
+                                <path d="M15 5.764v15"></path>
+                                <path d="M9 3.236v15"></path>
+                            </svg> 2D
+                        </button>
+                        <button type="button"
+                            class="flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold transition-all text-white/80 hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-compass w-3 h-3" aria-hidden="true">
+                                <path
+                                    d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z">
+                                </path>
+                                <circle cx="12" cy="12" r="10"></circle>
+                            </svg> Follow
+                        </button>
+                    </div>
+                    <button type="button" data-close-modal
+                        class="text-gray-500 hover:text-red-500 p-1 rounded-lg hover:bg-slate-100 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-x w-4 h-4" aria-hidden="true">
+                            <path d="M18 6 6 18"></path>
+                            <path d="m6 6 12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="relative flex-1 bg-[#eef2f7]">
+                <iframe
+                    src="https://maps.google.com/maps?q=13.028214,80.020542&z=14&output=embed"
+                    class="w-full h-full border-0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MODAL 2: SCAN TO VERIFY BUS MODAL -->
+    <div id="modal-scan-verify"
+        class="modal-wrapper fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
+        <div class="bg-white/90 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.15)] rounded-2xl w-full max-w-md overflow-hidden flex flex-col"
+            style="max-height: min(90vh, 720px);">
+            <div
+                class="bg-white/40 backdrop-blur-sm border-b border-white/30 px-4 py-3 rounded-t-xl flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2 min-w-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-bus w-4 h-4 text-emerald-500 shrink-0" aria-hidden="true">
+                        <path d="M8 6v6"></path>
+                        <path d="M15 6v6"></path>
+                        <path d="M2 12h19.6"></path>
+                        <path
+                            d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3">
+                        </path>
+                        <circle cx="7" cy="18" r="2"></circle>
+                        <path d="M9 18h5"></path>
+                        <circle cx="16" cy="18" r="2"></circle>
+                    </svg>
+                    <div class="min-w-0">
+                        <h3 class="text-sm font-bold text-gray-900">Scan to Verify Bus</h3>
+                        <p class="text-[11px] text-gray-500">Point the camera at the QR sticker on the bus.</p>
+                    </div>
+                </div>
+                <button type="button" data-close-modal onclick="stopCameraStream()"
+                    class="text-gray-500 hover:text-red-500 p-1 rounded-lg hover:bg-slate-100 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-x w-4 h-4" aria-hidden="true">
+                        <path d="M18 6 6 18"></path>
+                        <path d="m6 6 12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="p-4 overflow-auto">
+                <div class="space-y-3">
+                    <div id="bus-verify-qr-reader" class="w-full overflow-hidden rounded-xl border bg-black/5"
+                        style="position: relative;">
+                        <video id="camera-video-feed" autoplay muted playsinline style="width: 413px; display: block;"></video>
+                        <canvas id="qr-canvas" width="250" height="250"
+                            style="width: 250px; height: 250px; display: none;"></canvas>
+                        <div id="qr-shaded-region"
+                            style="position: absolute; border-width: 30px 81.5px; border-style: solid; border-color: rgba(0, 0, 0, 0.48); box-sizing: border-box; inset: 0px;">
+                            <div
+                                style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; top: -5px; left: 0px;">
+                            </div>
+                            <div
+                                style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; top: -5px; right: 0px;">
+                            </div>
+                            <div
+                                style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; bottom: -5px; left: 0px;">
+                            </div>
+                            <div
+                                style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; bottom: -5px; right: 0px;">
+                            </div>
+                            <div
+                                style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; top: -5px; left: -5px;">
+                            </div>
+                            <div
+                                style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; bottom: -5px; left: -5px;">
+                            </div>
+                            <div
+                                style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; top: -5px; right: -5px;">
+                            </div>
+                            <div
+                                style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; bottom: -5px; right: -5px;">
+                            </div>
+                        </div>
+                        <div
+                            style="display: none; position: absolute; top: 0px; z-index: 1; background: rgba(9, 9, 9, 0.46); color: rgb(255, 236, 236); text-align: center; width: 100%;">
+                            Scanner paused</div>
+                    </div>
+                    <div class="inline-flex items-center gap-1.5 text-[11px] text-gray-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-camera w-3.5 h-3.5" aria-hidden="true">
+                            <path
+                                d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z">
+                            </path>
+                            <circle cx="12" cy="13" r="3"></circle>
+                        </svg> Scanning for the bus QR…
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: SCAN VERIFICATION RESULT (ALLOWED TO TRAVEL) -->
+    <div id="modal-scan-result"
+        class="fixed inset-0 z-[130] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden animate-in fade-in duration-200">
+        <div class="bg-white/90 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.15)] rounded-2xl w-full max-w-md overflow-hidden flex flex-col"
+            style="max-height: min(90vh, 720px);">
+            <div
+                class="bg-white/40 backdrop-blur-sm border-b border-white/30 px-4 py-3 rounded-t-xl flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2 min-w-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-bus w-4 h-4 text-emerald-500 shrink-0" aria-hidden="true">
+                        <path d="M8 6v6"></path>
+                        <path d="M15 6v6"></path>
+                        <path d="M2 12h19.6"></path>
+                        <path
+                            d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3">
+                        </path>
+                        <circle cx="7" cy="18" r="2"></circle>
+                        <path d="M9 18h5"></path>
+                        <circle cx="16" cy="18" r="2"></circle>
+                    </svg>
+                    <div class="min-w-0">
+                        <h3 class="text-sm font-bold text-gray-900">Scan to Verify Bus</h3>
+                        <p class="text-[11px] text-gray-500">Point the camera at the QR sticker on the bus.</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeVerifyResultModal()"
+                    class="text-gray-500 hover:text-red-500 p-1 rounded-lg hover:bg-slate-100 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-x w-4 h-4" aria-hidden="true">
+                        <path d="M18 6 6 18"></path>
+                        <path d="m6 6 12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="p-4 overflow-auto">
+                <div class="space-y-4">
+                    <div class="rounded-xl border p-4 text-center border-emerald-300 bg-emerald-50 text-emerald-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-circle-check w-10 h-10 mx-auto" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="m9 12 2 2 4-4"></path>
+                        </svg>
+                        <div class="mt-2 text-base font-extrabold tracking-wide">Allowed to Travel</div>
+                        <div class="mt-1 text-xs opacity-90">Pass verified for this bus. You are allowed to travel.</div>
+                    </div>
+                    <div
+                        class="bg-white/90 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.15)] rounded-xl p-3 space-y-1.5 text-xs">
+                        <div class="flex items-center justify-between gap-3"><span class="text-gray-500">Bus</span><span
+                                id="scan-result-bus-no" class="font-semibold text-gray-900">TN87F5379</span></div>
+                        <div class="flex items-center justify-between gap-3"><span class="text-gray-500">Bus Route</span><span
+                                id="scan-result-bus-route" class="font-semibold text-right text-gray-900">7 – Redhills</span></div>
+                        <div class="flex items-center justify-between gap-3"><span class="text-gray-500">Your Pass Route</span><span
+                                id="scan-result-pass-route" class="font-semibold text-right text-gray-900">7 – Redhills</span></div>
+                    </div>
+                    <button type="button" onclick="rescanBus()"
+                        class="flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shadow-sm w-full text-sm font-semibold inline-flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-refresh-cw w-4 h-4" aria-hidden="true">
+                            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                            <path d="M21 3v5h-5"></path>
+                            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                            <path d="M8 16H3v5"></path>
+                        </svg> Scan Again
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL FOR SHOW.JPEG RESULT (Centered with blurred background) -->
+    <div id="modal-show-result" onclick="closeShowResultModal()"
+        class="fixed inset-0 z-50 flex flex-col items-center justify-center p-4 modal-backdrop hidden animate-in fade-in duration-300 cursor-pointer">
+        <div class="relative max-w-sm w-full flex flex-col items-center text-center" onclick="event.stopPropagation()">
+            <!-- Close Icon -->
+            <button type="button" onclick="closeShowResultModal()"
+                class="absolute -top-12 right-0 p-2 rounded-full bg-white/20 hover:bg-white/40 text-white transition-colors backdrop-blur-md">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-x">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+
+            <!-- Centered show.jpeg Container -->
+            <div
+                class="bg-white p-3 rounded-3xl shadow-2xl border-4 border-white/80 overflow-hidden transform transition-transform hover:scale-[1.01]">
+                <img src="show.jpeg" alt="Bus Pass Scan Verification Result"
+                    class="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-md">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MODAL 3: PROFILE EDIT MODAL -->
+    <div id="modal-profile-edit"
+        class="modal-wrapper fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
+        <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-100">
+            <div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-5 flex items-center justify-between">
+                <h3 class="font-extrabold text-base">Edit Bus Pass Profile</h3>
+                <button type="button" data-close-modal class="text-white/80 hover:text-white p-1 rounded-lg">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form onsubmit="saveProfileChanges(event)" class="p-5 space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Student Full Name</label>
+                    <input type="text" id="input-student-name"
+                        class="w-full px-3 py-2 border rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                        required>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Register Number</label>
+                    <input type="text" id="input-student-reg"
+                        class="w-full px-3 py-2 border rounded-xl text-sm font-mono focus:ring-2 focus:ring-blue-500 outline-none"
+                        required>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Department</label>
+                    <input type="text" id="input-student-dept"
+                        class="w-full px-3 py-2 border rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                        required>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Assigned Route</label>
+                    <input type="text" id="input-student-route"
+                        class="w-full px-3 py-2 border rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                        required>
+                </div>
+                <div class="pt-2 flex items-center justify-end gap-2">
+                    <button type="button" data-close-modal
+                        class="px-4 py-2 rounded-xl border border-slate-300 text-slate-600 text-xs font-bold">Cancel</button>
+                    <button type="submit"
+                        class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold">Save
+                        Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- LOGIN SELECTION / AUTH MODAL -->
+    <div id="modal-login-auth"
+        class="modal-wrapper fixed inset-0 z-[150] flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-md hidden">
+        <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-100 p-6 animate-in fade-in zoom-in duration-200">
+            <div class="text-center mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-3 border border-blue-100 shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-bus">
+                        <path d="M8 6v6"></path>
+                        <path d="M15 6v6"></path>
+                        <path d="M2 12h19.6"></path>
+                        <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"></path>
+                        <circle cx="7" cy="18" r="2"></circle>
+                        <path d="M9 18h5"></path>
+                        <circle cx="16" cy="18" r="2"></circle>
+                    </svg>
+                </div>
+                <h2 class="text-xl font-extrabold text-slate-900">SIMATS Viana Study Portal</h2>
+                <p class="text-xs text-slate-500 mt-1 font-medium">Enter institutional email to access your E-Bus Pass</p>
+            </div>
+
+            <form onsubmit="handleLoginSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Institutional Email Address</label>
+                    <input type="email" id="login-email-input" placeholder="e.g. sanjaioff@gmail.com"
+                        class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                        required>
+                    <p id="login-error-msg" class="text-xs text-red-500 font-semibold mt-1.5 hidden"></p>
+                </div>
+
+                <button type="submit"
+                    class="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-sm shadow-md transition-all">
+                    Sign In to Portal
+                </button>
+
+                <div class="relative my-4">
+                    <div class="border-t border-slate-200"></div>
+                    <span class="absolute left-1/2 -top-2.5 -translate-x-1/2 bg-white px-3 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Quick Select Demo User</span>
+                </div>
+
+                <div class="space-y-2">
+                    <button type="button" onclick="quickLogin('sanjaioff@gmail.com')"
+                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 flex items-center justify-between transition-all group text-left">
+                        <div>
+                            <div class="text-xs font-bold text-slate-800 group-hover:text-blue-600">Sanjai L</div>
+                            <div class="text-[11px] text-slate-500">sanjaioff@gmail.com</div>
+                        </div>
+                        <span class="text-xs font-bold text-blue-600 group-hover:translate-x-0.5 transition-transform">Select &rarr;</span>
+                    </button>
+
+                    <button type="button" onclick="quickLogin('dharshandhiren@gmail.com')"
+                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 flex items-center justify-between transition-all group text-left">
+                        <div>
+                            <div class="text-xs font-bold text-slate-800 group-hover:text-blue-600">Dharshan D</div>
+                            <div class="text-[11px] text-slate-500">dharshandhiren@gmail.com</div>
+                        </div>
+                        <span class="text-xs font-bold text-blue-600 group-hover:translate-x-0.5 transition-transform">Select &rarr;</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Print Root Container -->
+    <div id="print-root"></div>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Main Application Logic -->
+    <script src="app.js"></script>
+</body>
+
+</html>
