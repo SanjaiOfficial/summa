@@ -579,7 +579,7 @@ function openVerifyResultModal() {
     const passRouteEl = document.getElementById("scan-result-pass-route");
 
     const currentStudent = appState.student;
-    if (busNoEl) busNoEl.textContent = currentStudent.verifyBusNo || "TN87F5343";
+    if (busNoEl) busNoEl.textContent = currentStudent.verifyBusNo || "TN87F5379";
     if (busRouteEl) busRouteEl.textContent = currentStudent.verifyBusRoute || "5 – Retteri";
     if (passRouteEl) passRouteEl.textContent = currentStudent.verifyPassRoute || "5 – Retteri";
 
