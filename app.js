@@ -251,30 +251,11 @@ function playBeep(type = 'success') {
   }
 }
 
-// Generate QR Code on Canvas/Image
+// Ensure QR Code Image display
 function generateQRCode() {
-  const canvas = document.getElementById("pass-qr-canvas");
-  if (!canvas) return;
-
-  const qrData = "https://vtrip.saveetha.com/verify?id=SIMATS-BUS-2026-" + appState.student.regNo;
-  
-  if (window.QRCode) {
-    // Clear previous QR content
-    const container = canvas.parentElement;
-    if (container) {
-      // Use QRCode.js library format
-      canvas.style.display = 'none';
-      let imgQr = document.getElementById('pass-qr-img');
-      if (!imgQr) {
-        imgQr = document.createElement('img');
-        imgQr.id = 'pass-qr-img';
-        imgQr.className = 'w-40 h-40 object-contain rounded-lg border border-slate-100 shadow-inner';
-        container.appendChild(imgQr);
-      }
-      imgQr.src = `https://api.qrserver.com/v1/create-qr-code/?size=168x168&data=${encodeURIComponent(qrData)}&color=0f172a`;
-    }
-  } else {
-    renderFallbackQR(canvas);
+  const qrImg = document.getElementById("pass-qr-image");
+  if (qrImg) {
+    qrImg.src = "qr.jpg";
   }
 }
 
